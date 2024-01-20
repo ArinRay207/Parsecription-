@@ -3,7 +3,7 @@ import bpModel from '../model/bloodPressure.model.js'
 export const addBPDataController = async (req, res) => {
     try {
         const { systolic, diastolic } = req.body;
-        console.log(req.body);
+        // console.log(req.body);
         if (!systolic || !diastolic) {
             return res.status(404).send({
                 success: false,
@@ -39,7 +39,7 @@ export const addBPDataController = async (req, res) => {
 export const getBPDataController = async (req, res) => {
     try {
         const bpData = await bpModel.find({user: req.user._id});
-        console.log("BP Data->",bpData);
+        // console.log("BP Data->",bpData);
         res.status(200).send({
             success: true,
             message: "Sucessfully got all notes",

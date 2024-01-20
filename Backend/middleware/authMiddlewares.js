@@ -3,13 +3,13 @@ import userModel from '../model/user.model.js';
 
 export const requireSignIn = async(req, res, next) => {
     try {
-        console.log("AAAAAAAAA" , req.headers.authorization);
+        // console.log("AAAAAAAAA" , req.headers.authorization);
         const decode = JWT.verify(
             req.headers.authorization, 
             process.env.JWT_SECRET
         );
         req.user = decode;
-        console.log("User-->",req.user);
+        // console.log("User-->",req.user);
         next();       
     } catch(error) {
         console.log("Error", error);

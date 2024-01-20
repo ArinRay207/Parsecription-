@@ -3,6 +3,7 @@ import Prescriptions from "../model/pdf.model.js";
 import singleUpload  from "../middleware/multer.js";
 import getDatauri from "../Util/dataUri.js"
 import cloudinary from "cloudinary"
+import axios from "axios"
 async function addFilesHandler(req,res){
     console.log("reached handler");
     const userID = req.user._id;
@@ -25,7 +26,23 @@ async function addFilesHandler(req,res){
     const newPrescription = new Prescriptions({title,userID,url,public_id,asset_id});
     await newPrescription.save();
     console.log("File added");
-    // res.status(201).json({...mycloud,status : "ok"});
+    const requestToParse = {
+        url : mycloud.secure_url,
+        isPrescription : false,
+    };
+
+    try{
+    const response = await axios.post("http://172.18.2.133:8080/parse-prescription",requestToParse)
+        //  .then((response)=>{res.status(201).json({...response,secure_url : url ,status : "ok"});console.log(response)})
+        //  .catch((err)=>{console.log(err)});
+        // res.status(201).json({...response,secure_url:url,status : "ok"});
+        console.log("Parsed Response",response.data);
+        // const responseToSend = JSON.parse(response.data);
+        res.status(201).json({secure_url : url , status : "ok"});
+    }catch(err){
+        console.log(err);
+    }
+
 }
 
 export default addFilesHandler;

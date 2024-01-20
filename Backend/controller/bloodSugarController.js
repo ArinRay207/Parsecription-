@@ -13,8 +13,8 @@ export const addBSDataController = async (req, res) => {
 
         const bs = new bsModel({
             user: req.user._id,
-            val0: systolic,
-            val1: diastolic
+            val0: pp,
+            val1: fasting
         });
 
         bs.save();
