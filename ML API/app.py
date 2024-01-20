@@ -137,8 +137,9 @@ def parsePrescription(R: Request):
     textSplit = splitter(text)
 
     filteredTextLines = nerFilter.filter(textSplit)
+    print("Parsing...")
     ParsedResult = {'MedInfo': [], 'PatientInfo': []}
-
+    # print(filteredTextLines)
     for i in filteredTextLines:
         response = parser.invoke(i)
         # print(response)
@@ -148,22 +149,28 @@ def parsePrescription(R: Request):
             outer_dict['arguments'] = arguments_dict
             try:
                 if (outer_dict['name'] == 'MedInfo' and arguments_dict['frequency']):
-                    # print(outer_dict)
+                    print("Record Type: ", outer_dict['name'])
+                    print(outer_dict['arguments'])
+                    print()
                     ParsedResult[outer_dict['name']].append(
                         outer_dict['arguments'])
                 elif (outer_dict['name'] == 'PatientInfo'):
-                    # print(outer_dict)
+                    print("Record Type: ", outer_dict['name'])
+                    print(outer_dict['arguments'])
+                    print()
                     ParsedResult[outer_dict['name']].append(
                         outer_dict['arguments'])
 
             except:
                 if (outer_dict['name'] == 'PatientInfo'):
-                    # print(outer_dict)
+                    print("Record Type: ", outer_dict['name'])
+                    print(outer_dict['arguments'])
+                    print()
                     ParsedResult[outer_dict['name']].append(
                         outer_dict['arguments'])
 
     # return json.dumps(ParsedResult)
-
+    print("Medicine Consumption Times: ")
     for i in range(len(ParsedResult['MedInfo'])):
         # print("Entry")
         # print(ParsedResult['MedInfo'][i])
@@ -172,7 +179,9 @@ def parsePrescription(R: Request):
         L = generate_timestamps(
             start_time_str=start_time_str, end_time_str=end_time_str, mid_time_str=mid_time_str, n=freq)
         # print("Entry2")
-        print(L)
+        print("Medicine: ", ParsedResult['MedInfo'][i]['name'], end=' ')
+        print("Estimated Times: ", L)
+        print()
         ParsedResult['MedInfo'][i]['timestamps'] = L
 
     try:
@@ -215,7 +224,8 @@ def parsePrescription(R: Request):
 
     end = time()
     ParsedResult['processingTime'] = end-start
-    return ParsedResult
+    # print("YAY")
+    return json.dumps(ParsedResult)
 
 
 @app.post("/parse-report")
@@ -226,13 +236,16 @@ def parseReport(R: Request):
     download_pdf(url, destination_path)
     text = pdf_to_text(destination_path)
     result = explainerModel.invoke(text)
+    print("Summary: ")
+    print(text)
     end = time()
-    return {
+    # print("YAY")
+    return json.dumps({
         "summary": result,
         "processingTime": end-start
-    }
+    })
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="192.168.208.86", port=8080)
+    uvicorn.run(app, host="172.18.2.133", port=8080)
