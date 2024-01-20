@@ -1,0 +1,14 @@
+.add-btn {
+    position: fixed;
+    display: inline-flex;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.add-sign {
+    font-size: 4em;
+}

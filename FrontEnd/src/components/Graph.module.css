@@ -1,0 +1,97 @@
+
+.title {
+    margin: 0;
+    font-size: 4vw;
+    color: #0F5C7D;
+}
+
+
+.graph-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    height: 50vh;
+    width: 50vw;
+    margin: 2rem 2rem;
+}
+/* 
+.button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+} */
+
+.graph-container {
+    /* position: absolute; */
+    z-index: 10;
+    background-color: #D6EEEA;
+    width: inherit;
+    height: 90%;
+} 
+
+.graph {
+    height: 100%;
+    width: 100%;
+}
+
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.form-container {
+    /* display: flex;
+    justify-content: space-evenly; */
+    bottom: 0;
+    position: relative;
+    width: inherit;
+    /* display: flex; */
+    
+    /* position: absolute; */
+}
+
+.button, .form-container, .form-field-container {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+}
+
+.button.closed {
+    transform: rotate(-90deg);
+}
+
+.button.opened {
+    transform: rotate(0);
+}
+
+.form-container.closed, .form-field-container.opened  {
+    transform: translate3d(0, 0, 0);
+}
+
+.form-field-container.closed {
+    transform: translate3d(0, -5rem, 0);
+}
+
+.form-container.opened {
+    transform: translate3d(0, 4rem, 0);
+}
+
+
+.title {
+    /* width: fit-content; */
+    background-color: #D6EEEA;
+    font-size: 5em;
+    color: #0F5C7D;
+    margin-top: 1rem;
+    /* left: 0; */
+    /* position: absolute; */
+    /* z-index: 10; */
+}
+
+.button {
+    z-index: 0;
+}

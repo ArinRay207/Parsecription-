@@ -1,0 +1,43 @@
+.signup {
+    background-color: #D6EEEA;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    /* position: relative; */
+}
+
+.col {
+    width: 50vw;
+    height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.left-column {
+    width: 60vw;
+}
+
+.right-column {
+    width: 40vw;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: inherit;
+}
+
+.title {
+    margin-top: 5vh;
+    font-size: 5.5vw;
+    color: #0F5C7D;
+}

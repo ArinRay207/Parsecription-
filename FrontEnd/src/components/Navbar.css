@@ -1,0 +1,49 @@
+.navbar {
+  background-color: #193A65;
+  color: #73C162;
+  font-size: 1.25rem;
+  padding: 0;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+/* h1 {
+  font-size: 20rem;
+  font-weight: 600;
+  color: #73C162;
+  animation: slideDown ease 1s forwards 0s;
+  margin: 2rem 0 0 0;
+} */
+
+.navbar-brand, .navbar-brand:hover {
+  color: #73C162;
+  /* font-size: 1.8rem; */
+  /* font-weight: 400; */
+}
+
+.navbar-items-list {
+  margin-left: auto;
+}
+
+.nav-link{
+  color: #168DC6;
+  /* font-weight: 500; */
+} 
+
+.nav-link:hover {
+  color: #091334;
+  /* font-weight: 500; */
+}
+
+
+
+.nav-item {
+  width: max-content;
+}
+
+.nav-item:hover {
+  background-color: #168DC6;
+}

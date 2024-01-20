@@ -1,0 +1,53 @@
+
+.form h2 {
+    padding-bottom: 3vh;
+    border-bottom: solid;
+    border-color: #0F5C7D;
+    margin: 0;
+    font-size: 3vw;
+}
+
+.form {
+    height: 80vh;
+    width: 30vw;
+    border: solid;
+    border-color: #0F5C7D;
+    border-radius: 20px;
+    border-width: 0.5vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form-field {
+    height: 6vh;
+    padding: 0 1vw;
+    border-radius: 5vh;
+    border: none;
+    width: auto;
+    margin-bottom: 3vh;
+}
+
+.form-field-container {
+    width: 25vw;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 1vw;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-age {
+    width: 9vw;
+}
+
+.form-gender {
+    width: 13vw;
+}

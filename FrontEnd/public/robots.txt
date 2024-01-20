@@ -1,0 +1,23 @@
+/login
+/signup
+/user/:id/dashboard
+/user/:id/cards
+/user/:id/prescription
+    POST    /user/:id/upload-prescription
+    POST    /user/get-titles
+    GET     /user/:id/:pdf-id
+    GET     /user/:id/:pdf-id/info
+
+    GET     /user/:id/blood-pressure
+    GET     /user/:id/oxygen-saturation
+    GET     /user/:id/pulse-rate
+    GET     /user/:id/blood-sugar
+    GET     /user/:id/weight
+    GET     /user/:id/height
+
+    POST     /user/:id/blood-pressure
+    POST     /user/:id/oxygen-saturation
+    POST     /user/:id/pulse-rate
+    POST     /user/:id/blood-sugar
+    POST     /user/:id/weight
+    POST     /user/:id/height
